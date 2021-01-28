@@ -1,0 +1,96 @@
+﻿<Page x:Class="WS_Project.LicencesPages"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WS_Project"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ВУ" MinWidth="1000">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="291*"/>
+            <RowDefinition Height="158*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <DataGrid  Width="auto" x:Name="LicensiesDataGrid" Margin="10,10,12,41.2" AutoGenerateColumns="False" IsReadOnly="True" ColumnWidth="auto" CanUserResizeColumns="False" CanUserReorderColumns="False" SelectionChanged="LicensiesDataGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn FontSize="18" Binding="{Binding Licenceseries}" ClipboardContentBinding="{x:Null}" Header="Серия"/>
+                <DataGridTextColumn FontSize="18" Binding="{Binding Licence_number}" ClipboardContentBinding="{x:Null}" Header="Номер"/>
+                <DataGridTextColumn FontSize="18" Binding="{Binding Licence_date,StringFormat={}{0:dd.MM.yyyy}}" ClipboardContentBinding="{x:Null}" Header="Дата выдачи"/>
+                <DataGridTextColumn FontSize="18" Binding="{Binding Expire_date,StringFormat={}{0:dd.MM.yyyy}}" ClipboardContentBinding="{x:Null}" Header="Дата изъятия"/>
+                <DataGridTextColumn FontSize="18" Header="Статус" Binding="{Binding Status.Status1}"/>
+                <DataGridTemplateColumn  Header="">
+                    <DataGridTemplateColumn.CellTemplate >
+                        <DataTemplate>
+                            <TextBlock HorizontalAlignment="Stretch" Background="{Binding Status.Color}"></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Background="#FFFFFCD6" Content="Добавить" FontSize="20" HorizontalAlignment="Left" Width="148" Click="Button_Click_1" Margin="10,0,0,6.2" Height="30" VerticalAlignment="Bottom" />
+        <DataGrid  Width="auto" x:Name="HistoryDataGrid" Margin="10,9.8,12,9.6" AutoGenerateColumns="False" IsReadOnly="True" ColumnWidth="auto" CanUserResizeColumns="False" CanUserReorderColumns="False" Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn FontSize="18" Binding="{Binding date, StringFormat=\{0:dd.MM.yyyy\}}" ClipboardContentBinding="{x:Null}" Header="Дата"/>
+                <DataGridTextColumn FontSize="18" Binding="{Binding Comment}" ClipboardContentBinding="{x:Null}" Header="Комментарий"/>
+                <DataGridTemplateColumn  Header="">
+                    <DataGridTemplateColumn.CellTemplate >
+                        <DataTemplate>
+                            <TextBlock HorizontalAlignment="Stretch" Background="{Binding Status.Color}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+
+                <DataGridTextColumn FontSize="18" Header="Статус" Binding="{Binding Status.Status1}"/>
+
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Background="#FFFFFCD6" Content="Добавить" FontSize="20" HorizontalAlignment="Left" Width="148" Click="Button_Click_1" Margin="10,0,0,6.2" Height="30" VerticalAlignment="Bottom" />
+        <Button Background="#FFFFFCD6" Content="Обновить" FontSize="20" HorizontalAlignment="Left" Width="148" Click="Button_Click" Margin="204,0,0,6.2" Height="30" VerticalAlignment="Bottom" />
+        <StackPanel Grid.Column="1" Grid.Row="0" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="15" Text="Статус:  "/>
+                <ComboBox  DisplayMemberPath="Status1" SelectedValuePath="id" SelectedValue="{Binding ElementName=LicensiesDataGrid, Path=SelectedItem.Status.id}" x:Name="cmbStatus"  FontSize="15" Width="350"   />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="15" Text="Серия:  "/>
+                <TextBox   Text="{Binding ElementName=LicensiesDataGrid,Path=SelectedItem.Licenceseries}"  FontSize="15"  IsEnabled="False"  />
+
+                <TextBlock FontSize="15" Text="Номер:  "/>
+                <TextBox   Text="{Binding ElementName=LicensiesDataGrid,Path=SelectedItem.Licence_number}"  FontSize="15"  IsEnabled="False"  />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="15" Text="Дата выдачи:  "/>
+                <TextBox   Text="{Binding ElementName=LicensiesDataGrid,Path=SelectedItem.Licence_date, StringFormat={}{0:dd.MM.yyyy}}"  FontSize="15"  IsEnabled="False"  />
+                <TextBlock FontSize="15" Text="Дата изъятия:  "/>
+                <TextBox   Text="{Binding ElementName=LicensiesDataGrid,Path=SelectedItem.Expire_date, StringFormat={}{0:dd.MM.yyyy}}"  FontSize="15"  IsEnabled="False"  />
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock FontSize="15" Text="Водитель:  "/>
+                <TextBox   Text="{Binding ElementName=LicensiesDataGrid,Path=SelectedItem.Drivers.FirstName}"  FontSize="15"  IsEnabled="False"  />
+                
+                <TextBox   Text="{Binding ElementName=LicensiesDataGrid,Path=SelectedItem.Drivers.LastNAme}"  FontSize="15"  IsEnabled="False"  />
+
+                <TextBox   Text="{Binding ElementName=LicensiesDataGrid,Path=SelectedItem.Drivers.MiddleName}"  FontSize="15"  IsEnabled="False"  />
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="15" Text="Комментарий:  "/>
+                <TextBox   Text=""  FontSize="15"  x:Name="tbComment" Width="350" Height="100" />
+
+                </StackPanel>
+        </StackPanel>
+        <Button Background="#FFFFFCD6" Content="Сохранить" FontSize="20" HorizontalAlignment="Right" Width="148" Click="Button_Click_2" Margin="342,0,0,10.2" Height="30" VerticalAlignment="Bottom" Grid.Column="1" />
+        <Button Background="#FFFFFCD6" Content="Выгрузить" FontSize="20" HorizontalAlignment="Left" Width="148" Click="Button_Click_3"  Height="30" VerticalAlignment="Bottom" Grid.Column="1" Margin="10,0,0,10.2" />
+
+    </Grid>
+</Page>

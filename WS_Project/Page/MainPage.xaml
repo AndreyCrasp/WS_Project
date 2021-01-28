@@ -1,0 +1,20 @@
+﻿<Page x:Class="WS_Project.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WS_Project"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Главная">
+
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Button Background="#FFFFFCD6" x:Name="btnDrivers" Content="Водители" FontSize="25" Width="150" Click="btnDrivers_Click"  />
+        <Button Background="#FFFFFCD6" x:Name="btnLicences" Margin="0 20 0 0" Content="ВУ" FontSize="25" Width="150" Click="btnLicences_Click"  />
+        <Button Background="#FFFFFCD6" x:Name="btnLicences_Copy" Margin="0 20 0 0"  Content="График ВУ" FontSize="25" Width="150" Click="btnLicences_Copy_Click"  />
+        <Button Background="#FFFFFCD6" x:Name="btnStatVU" Margin="0 20 0 0"  Content="Статистика" FontSize="25" Width="150" Click="btnStatVU_Click"  />
+        <Button Background="#FFFFFCD6" x:Name="btnCars" Margin="0 20 0 0"  Content="Авто" FontSize="25" Width="150" Click="btnCars_Click"  />
+
+
+    </StackPanel>
+</Page>

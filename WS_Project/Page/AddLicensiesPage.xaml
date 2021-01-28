@@ -1,0 +1,64 @@
+﻿<Page x:Class="WS_Project.AddLicensies"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WS_Project"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Новая лицензия">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="43*"/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <TextBlock TextWrapping="Wrap" FontSize="15" Text="Водитель" Margin="0 5"/>
+            <TextBlock TextWrapping="Wrap" FontSize="15" Text="Дата выдачи" Margin="0 5"/>
+            <TextBlock TextWrapping="Wrap" FontSize="15" Text="Дата изъятия" Margin="0 5"/>
+            <TextBlock TextWrapping="Wrap" FontSize="15" Text="Категории" Margin="0 5"/>
+            <TextBlock TextWrapping="Wrap" FontSize="15" Text="Серия" Margin="0 5"/>
+            <TextBlock TextWrapping="Wrap" FontSize="15" Text="Номер" Margin="0 5"/>
+            <TextBlock TextWrapping="Wrap" FontSize="15" Text="Статус" Margin="0 5"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"  >
+            <StackPanel Orientation="Horizontal">
+
+                <ComboBox  IsEditable="True" SelectionChanged="cmbDriver_SelectionChanged" x:Name="cmbDriver"  FontSize="15"  Margin="0 5" Width="358" KeyUp="cmbDriver_PreviewTextInput" PreviewMouseDown="cmbDriver_PreviewMouseDown"  >
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                                    <TextBlock Text="{Binding MiddleName}" FontSize="18"></TextBlock>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock   Text="{Binding FirstName}"  FontSize="15"></TextBlock>
+                                        <TextBlock Text="  "  FontSize="15"></TextBlock>
+                                        <TextBlock Text="{Binding LastNAme}"  FontSize="15"></TextBlock>
+                                    </StackPanel>
+                                </StackPanel>
+
+                                <TextBlock x:Name="pathphoto" Visibility="Collapsed" Text="{Binding photo, StringFormat={}C:\\Users\\newcr\\Desktop\\WS_Project\\WS_Project\\bin\\Debug\\photo\\{0}}"></TextBlock>
+                            </Grid>
+
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <Button Background="#FFFFFCD6" Content="+" FontSize="20" Margin="5 0 0 0" HorizontalAlignment="Right" VerticalAlignment="Center"  Click="Button_Click_1"    Grid.Column="1" />
+
+            </StackPanel>
+            <DatePicker x:Name="dateLicensies" FontSize="15" Text="Дата выдачи" Margin="0 5"/>
+            <DatePicker x:Name="dateEx" FontSize="15" Text="Дата выдачи" Margin="0 5"/>
+            <TextBox x:Name="tbCat" TextWrapping="Wrap" FontSize="15"  Margin="0 5"/>
+            <TextBox x:Name="tbSeries" TextWrapping="Wrap" FontSize="15"  Margin="0 5"/>
+            <TextBox x:Name="tbNumber" TextWrapping="Wrap" FontSize="15"  Margin="0 5"/>
+            <ComboBox DisplayMemberPath="Status1" SelectedValuePath="id" x:Name="cmbStatus"  FontSize="15"  Margin="0 5" Width="358"/>
+        </StackPanel>
+        <Button Background="#FFFFFCD6" Content="Сохранить" FontSize="20" VerticalAlignment="Center"  Click="Button_Click"   Grid.Row="1"  Grid.ColumnSpan="2"  />
+
+    </Grid>
+</Page>

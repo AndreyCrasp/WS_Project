@@ -1,0 +1,47 @@
+﻿<Page x:Class="WS_Project.AddDriverPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WS_Project"
+      mc:Ignorable="d" d:DesignWidth="800"
+      Title="Новый водитель" Height="auto" Width="auto">
+
+    <Grid Margin="0,0,0,-0.4">
+        <StackPanel Grid.Row="0"  Width="150" HorizontalAlignment="Left" Margin="35,9,0,52"  >
+            <TextBlock TextWrapping="Wrap"  FontSize="15"><InlineUIContainer>
+                    <Image Height="125" Width="100"/>
+                </InlineUIContainer><Run Text="Идентифи"/><Run Text="ка"/><Run Text="тор:"/></TextBlock>
+            <TextBlock TextWrapping="Wrap" Text="Фамилия:" FontSize="15" Margin="0,15,-0.4,0"/>
+            <TextBlock TextWrapping="Wrap" FontSize="15" Margin="0,15,-0.4,0"><Span Foreground="Black" FontSize="16" FontFamily="Calibri"><Run Text="Имя:"/></Span></TextBlock>
+            <TextBlock TextWrapping="Wrap" FontSize="15" Margin="0,10,-0.4,0"><Span Foreground="Black" FontSize="16" FontFamily="Calibri"><Run Text="Отчество"/></Span><Run Text=":"/></TextBlock>
+            <TextBlock TextWrapping="Wrap" FontSize="15" Margin="0,10,-0.4,0"><Run FontSize="16" FontFamily="Calibri" Text="Паспорт серия"/><Run Text=":"/></TextBlock>
+            <TextBlock TextWrapping="Wrap" FontSize="15" Margin="0,10,-0.4,0"><Run FontSize="16" FontFamily="Calibri" Text="Н"/><Run FontSize="16" FontFamily="Calibri" Text="омер"/><Run Text=":"/></TextBlock>
+            <TextBlock TextWrapping="Wrap" FontSize="15" Margin="0,10,-0.4,0"><Span Foreground="Black" FontSize="16" FontFamily="Calibri"><Run Text="Адрес регистрации"/></Span><Run Text=":"/></TextBlock>
+            <TextBlock TextWrapping="Wrap" FontSize="15" Margin="0,10,-0.4,0"><Span Foreground="Black" FontSize="16" FontFamily="Calibri"><Run Text="Адрес проживания"/></Span><Run Text=":"/></TextBlock>
+            <TextBlock TextWrapping="Wrap" FontSize="15" Margin="0,10,-0.4,0"><Run FontSize="16" FontFamily="Calibri" Text="Место работы"/><Run Text=":"/></TextBlock>
+            <TextBlock TextWrapping="Wrap" FontSize="15" Margin="0,10,-0.4,0"><Run FontSize="16" FontFamily="Calibri" Text="Должность"/><Run Text=":"/></TextBlock>
+            <TextBlock TextWrapping="Wrap" FontSize="15" Margin="0,10,-0.4,0"><Span Foreground="Black" FontSize="16" FontFamily="Calibri"><Run Text="Мобильный телефон"/></Span><Run Text=":"/></TextBlock>
+            <TextBlock TextWrapping="Wrap" FontSize="15" Margin="0,10,-0.4,0"><Span Foreground="Black" FontSize="16" FontFamily="Calibri"><Run Text="Email"/></Span><Run Text=":"/></TextBlock>
+            <TextBlock TextWrapping="Wrap" FontSize="15" Margin="0,10,-0.6,0"><Span Foreground="Black" FontSize="16" FontFamily="Calibri"><Run Text="Замечания"/></Span><Run Text=":"/></TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Margin="286,9,280,52" >
+            <Image  x:Name="Photo" HorizontalAlignment="Stretch" Width="100" Height="125" Source="001-happy-18.png" MouseDown="Photo_MouseDown" />
+            <TextBox x:Name="tbGUID" TextWrapping="Wrap" Text="" FontSize="15" IsEnabled="False"/>
+            <TextBox x:Name="tbMiddleName" TextWrapping="Wrap" Text="" FontSize="15" Margin="0,10,-0.4,0"/>
+            <TextBox x:Name="tbFirstName" TextWrapping="Wrap" FontSize="15" Margin="0,10,-0.4,0"/>
+            <TextBox x:Name="tbLastNAme" TextWrapping="Wrap" FontSize="15" Margin="0,10,-0.4,0"/>
+            <TextBox x:Name="tbpassport_serial" TextWrapping="Wrap" FontSize="15" Margin="0,10,-0.4,0"/>
+            <TextBox x:Name="tbpassport_number" TextWrapping="Wrap" FontSize="15" Margin="0,10,-0.4,0"/>
+            <TextBox x:Name="tbaddress" TextWrapping="Wrap" FontSize="15" Margin="0,10,-0.4,0"/>
+            <TextBox x:Name="tbaddress_life" TextWrapping="Wrap" FontSize="15" Margin="0,10,-0.4,0"/>
+            <TextBox x:Name="tbcompany" TextWrapping="Wrap" FontSize="15" Margin="0,10,-0.4,0"/>
+            <TextBox x:Name="tbjobname" TextWrapping="Wrap" FontSize="15" Margin="0,10,-0.4,0"/>
+            <TextBox x:Name="tbphone" TextWrapping="Wrap" FontSize="15" Margin="0,10,-0.4,0"/>
+            <TextBox x:Name="tbemail" TextWrapping="Wrap" FontSize="15" Margin="0,10,-0.4,0"/>
+            <TextBox x:Name="tbdescription" TextWrapping="Wrap" FontSize="15" Margin="0,10,-0.8,0" UndoLimit="500" Height="25"/>
+        </StackPanel>
+        <Button Background="#FFFFFCD6" Content="Сохранить" FontSize="20" Click="Button_Click"  Height="36" VerticalAlignment="Bottom" />
+
+    </Grid>
+</Page>
